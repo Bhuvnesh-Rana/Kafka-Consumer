@@ -1,0 +1,60 @@
+# Apache Kafka.
+. Apache kafka is like a communication system that helps diff parts of comp system/microservices exchange data by using publishing and subscribing to topics.
+. free and open source distributed message storage system that provides an infrastructure to meet the above challenges. That mean, it is scalable, 
+ reliable, and available system for faster reads and writes of real-time streaming data.
+. It mainly focuses on constructing data pipelines between different applications to perform real-time data streaming and analysis.
+
+. To improve their customer service, the technical team needs to analyze clickstream data to predict customer behavior in real-time.
+*Clickstream data - User performed activities on the web site. This data gets generated and captured continuously.(to see cutomer behavior)
+. Use Apache Kafka as a message storage system for managing company's real-time data streaming.
+
+Need of Kafka
+. Suitable for real-time data streaming and analysis
+. Provides complete solution to collect, store and consume any number of logs from different machines/applications
+. Supports high throughput where millions of logs can be read/written in a short time 
+. Provides a simple way to manage the real-time data
+. High throughput, fault tolerance(as uses replication), durable, scalable, high availability.
+
+. Zookeeper keeps track of status of the Kafka cluster nodes and it also keeps track of Kafka topics, partitions etc.
+
+. STATE:- Represents the current status of an entity. For example, the current cash balance in your account.
+. EVENT:- Is an indication in time, that a particular thing happened. Represents the current status of an entity plus the time information plus any 
+  additional information. For example, in the event of a cash deposit in your account, the current cash balance in your account. The event captures 
+  time-based information and much more related information about the current event that has happened. Such information is stored in a structure called 
+
+Logs.
+. LOGS:- These are the ordered sequence of such Events. Logs are easy to manage and scale. These Log information when stored durably are called Topics.
+. TOPIC:-   represents the log information, that is stored durably and replicated across multiple disks or servers, to avoid a single point of failure. 
+. KAFKA CONNECT:- A tool that helps to retrieve data from non-Kafka-based databases to Kafka topics and vice-versa.
+. KAFKA STREAMS:- A java API, that handles commonly used functionalities that we might need when using Kafka topics in our microservice applications
+  in a scalable and fault-tolerant way.
+. KSQL:-  A SQL-like language to process the information in a Kafka topic and update another Kafka topic without the need for a microservice in between the topics.
+. Kafka Cluster- Represents the network of Kafka brokers(Kafka runtimes), which will ensure the storage of Event streams in a durable way. 
+. Kafka Producer API- A primitive API, that allows publishing Event streams to the Kafka cluster 
+. Kafka Consumer API- A primitive API, that allows applications to consume Event streams from the Kafka cluster
+. Kafka connect & produce API- A high-level API, that allows integration of Kafka with the rest of the ecosystems. (import of data from other applications as Event streams)
+. Kafka connect & consume API- A high-level API, that allows the export of Event streams from Kafka to any other repository or applications.
+. Kafka streams API- A java based API for processing the Event streams.Used to create, process, and query the Event streams. 
+. @KafkaListener
+
+Publish - Subscribe model
+. Using the Pub-Sub model, 'n' number of Producers generate messages that are published to message broker(s)
+. These messages are grouped and categorized as Topics
+. Consumers subscribe to Topics and consume the required messages for processing
+
+. producer -> kafka cluster -> consumer(subscribes a perticular topic) (kafka cluster contains kafka broker -> zookeper)
+
+. Kafka cluster stores stream of messages where every message is identified by a unique id called "Offset"
+. Set of messages are grouped by category. Each category is known as a “Topic” to which producers publish the messages
+. Every Kafka topic is partitioned and distributed across the brokers/servers in the cluster each of which is known as a “Partition”*
+. Each partition is a sequence of immutable (not editable) messages wherein new messages are appended to it as and when they arrive
+. For reliability, Kafka replicates partitions across brokers in the cluster
+. Kafka broker holding the main copy of a particular partition is considered as LEADER, and zero or more brokers holding the replicas are considered as FOLLOWERS
+. The number of partitions per topic and the replication factor** are configurable at the time of topic creation
+. Consumers subscribe to specific topic as per the requirement and consume the messages. A topic may have zero or more subscribers *see img*
+
+. Serialization is the process of translating data or an object into a format that is ideal for transmitting through the network. Serdes. 
+. De-Serialization is the reverse process of serialization, where the data received is translated back to re-create the data or object back.
+. Kafka Streams is a java API that has methods to work, filter, process, and aggregate events from a sender or receiver. has many useful methods.
+
+bin\windows\kafka-console-consumer.bat --topic employee --from-beginning --bootstrap-server localhost:9092
