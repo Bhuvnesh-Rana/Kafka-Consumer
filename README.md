@@ -11,6 +11,7 @@
 9. Run both Kafka-Producer project and Kafka-Consumer project as spring boot projects one by one.
 10. Open postmann app and send valid JSON.
 11. The producer will produce message and then the consumer will consume the message.
+12. bin\windows\kafka-console-consumer.bat --topic employee --from-beginning --bootstrap-server localhost:9092  (run on cmd prompt to see published message.)
     
     
 
